@@ -11295,7 +11295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fafed594a9194ce09a8930de20f12de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverSceneName: MainMenu
+  winnerSceneName: Winner
+  gameOverSceneName: Loser
 --- !u!1001 &8728395568279552750
 PrefabInstance:
   m_ObjectHideFlags: 0

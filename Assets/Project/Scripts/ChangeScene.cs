@@ -3,22 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public string winnerSceneName;
     public string gameOverSceneName;
 
     private void OnCollisionEnter(Collision collision)
     {
         // Check if the collision is with an object tagged as "Column" or "Tank"
-        if (collision.gameObject.CompareTag("Column") || collision.gameObject.CompareTag("Tank"))
+        if (collision.gameObject.CompareTag("Column"))
         {
-            // Invoke the ChangeSceneDelayed function after a 1-second delay
-            Invoke("ChangeSceneDelayed", 0.5f);
+            Invoke("ChangeToGameOverSceneDelayed", 0.5f);
+        }
+        else if (collision.gameObject.CompareTag("Tank"))
+        {
+            Invoke("ChangeToWinnerSceneDelayed", 0.5f);
         }
     }
 
-    private void ChangeSceneDelayed()
+    private void ChangeToGameOverSceneDelayed()
     {
-        // Load the game over scene
         SceneManager.LoadScene(gameOverSceneName);
     }
+
+    private void ChangeToWinnerSceneDelayed()
+    {
+        SceneManager.LoadScene(winnerSceneName);
+    }
 }
+
+
 
